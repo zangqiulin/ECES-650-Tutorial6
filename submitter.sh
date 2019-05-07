@@ -23,6 +23,7 @@ cd metaphlan2
 wget https://www.dropbox.com/s/l87mmmjs0fr85ir/hmp_metagenomics.zip
 unzip hmp_metagenomics.zip
 
+mkdir ./hmp_metagenomics/output/
 for i in ./hmp_metagenomics/fastq/*; do
 	j=${i##*/}
 	python ./metaphlan2.py --mpa_pkl ./metaphlan2_db/db_v20/mpa_v20_m200.pkl --input_type fastq --bowtie2db ./metaphlan2_db/db_v20/mpa_v20_m200 --no_map --nproc 2 -o ./hmp_metagenomics/output/${j/fastq/txt} $i
